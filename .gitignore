@@ -160,4 +160,5 @@ cython_debug/
 #.idea/
 
 # ignore .bak files
-.bak
+.py.bak
+/.bak
