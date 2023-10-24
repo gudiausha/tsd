@@ -26,6 +26,8 @@ def findSecondLargest(sequenceOfNumbers):
     
 
 #Best Approach
+#TC.: O(1) --> ignoring the inbuilt sort method
+#SC.: O(1)
 def findSecondLargest(sequenceOfNumbers):
     #remove the duplicates
     arr = list(set(sequenceOfNumbers))
