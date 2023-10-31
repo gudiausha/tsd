@@ -19,3 +19,18 @@ def makeBeautiful(str):
 			c+=0
 	return c			
 	# pass
+    
+
+#gives the min count
+def makeBeautiful(str):
+	zero = 0
+	one = 1
+	count_zero = 0
+	count_one = 0
+	for i in str:
+		if int(i) != zero:
+			count_zero += 1
+		if int(i) != one:
+			count_one += 1
+		zero,one = one,zero
+	return min(count_one, count_zero)
