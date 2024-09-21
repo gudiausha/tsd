@@ -36,5 +36,16 @@ class ConcreteClass1(StrategyPatternInterface):
     def H(self):
         print('Hi I am Class H. I am not dereieved from Base Class. I am common in Classes 1-4 ')
 
+class ConcreteClass2(StrategyPatternInterface):
+    def A(self):
+        print('Hi, this is an alternate implementation of A')
 
-strategy_obj = ConcreteClass1()
+    def B(self):
+        print('This is another implementation of B')
+
+    def H(self):
+        print('Alternate implementation of H')
+
+
+strategy_obj1 = ConcreteClass1()
+strategy_obj2 = ConcreteClass2()
