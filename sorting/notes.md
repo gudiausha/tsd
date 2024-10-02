@@ -88,6 +88,8 @@
    - **Quick Sort** is often the go-to for large, random datasets due to its average \(O(n \log n)\) time complexity and in-place sorting.
    - **Merge Sort** is preferred for data that requires stability or when you can afford the extra space overhead.
    - **Insertion Sort** and **Bubble Sort** are useful for small or nearly sorted datasets.
+     
+---
 
 When we say that **Selection Sort is unstable** and **Bubble Sort is stable**, we are referring to the concept of **stability in sorting algorithms**. 
 
@@ -130,6 +132,8 @@ A **stable sorting algorithm** maintains the **relative order** of records with 
 ### Summary:
 - **Bubble Sort is stable**: Equal elements retain their original relative order.
 - **Selection Sort is unstable**: Equal elements might not retain their relative order after sorting.
+
+---
 
 ### Key Reasons Why Bubble Sort is Rarely Used:
 
