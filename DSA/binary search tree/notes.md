@@ -380,3 +380,97 @@ The **time complexity** (TC) and **space complexity** (SC) of the **search opera
 - **Iterative** approach requires **O(1)** space, using only constant space for the traversal.
 
 For **balanced** BSTs, both the time complexity and space complexity are **O(log n)**, while for **unbalanced** BSTs, the complexity can degrade to **O(n)**, where `n` is the number of nodes in the tree.
+
+---
+### Leaf Node Deletion Case
+The key to understanding why we only return `None` and don't explicitly assign the parent node's `left` or `right` to `None` lies in how the recursive function works.
+
+---
+
+### **How Recursion Updates the Parent Node's Pointer**
+When we write:
+
+```python
+root.left = delete(root.left, key)
+root.right = delete(root.right, key)
+```
+
+We are explicitly assigning the **returned value of the recursive call** to `root.left` or `root.right`. This ensures that the parent's reference (either `left` or `right`) is updated based on the result of the `delete` function.
+
+Let’s break it down step by step for the **else** case (when the node is a leaf):
+
+1. **Node Found**:  
+   Suppose we find the node with the matching key, and it is a leaf node (i.e., `root.left is None` and `root.right is None`).
+
+2. **Return `None`**:  
+   By returning `None` in the `delete` function, we are effectively signaling that the node should be removed from the tree.
+
+3. **Parent Updates Its Pointer**:  
+   - If the parent called `delete(root.left, key)`, then the `delete` function returns `None` for `root.left`, and the parent updates its `left` pointer to `None`.
+   - Similarly, if the parent called `delete(root.right, key)`, the parent's `right` pointer gets updated to `None`.
+
+---
+
+### **Why Don’t We Directly Update the Parent’s Pointer?**
+We don’t directly update the parent’s `left` or `right` in the `else` block because:
+1. **Parent Reference is Not Explicitly Passed**:  
+   The `delete` function operates on the current node (`root`). It doesn’t have direct access to the parent node's `left` or `right` pointers.
+   
+2. **The Recursive Call Handles Updates**:  
+   By returning `None`, we allow the recursive call to automatically handle the update of the parent’s pointer, as shown in:
+
+   ```python
+   root.left = delete(root.left, key)
+   root.right = delete(root.right, key)
+   ```
+
+---
+
+### **An Analogy**
+Think of the recursive function as a helper that you hire to clean up branches of a tree. Instead of the helper going back to report what they’ve cleaned, they simply return the modified branch. The tree owner (the parent node) then attaches the returned branch to the correct position.
+
+---
+
+### **Illustrative Example**
+Let’s assume the tree is:
+
+```
+      50
+     /  \
+    30   70
+   /
+  20
+```
+
+Now, we want to delete the leaf node `20`.
+
+1. **Initial Call**:  
+   `delete(root, 20)` is called with `root` pointing to `50`.
+
+2. **Traverse Left**:  
+   Since `20 < 50`, it calls `delete(root.left, 20)` where `root.left` is `30`.
+
+3. **Traverse Left Again**:  
+   Since `20 < 30`, it calls `delete(root.left, 20)` where `root.left` is `20`.
+
+4. **Match Found**:  
+   `20 == root.key`, and `root.left` and `root.right` are `None`. The function returns `None` (deleting the leaf).
+
+5. **Update Parent’s Pointer**:  
+   Back at the node `30`, the statement `root.left = delete(root.left, 20)` assigns `None` to `30.left`.
+
+6. **Propagate Up**:  
+   This updated tree structure propagates up to `50`, ensuring the tree remains valid.
+
+After deletion, the tree becomes:
+
+```
+      50
+     /  \
+    30   70
+```
+
+---
+
+### **Key Takeaway**
+We don’t need to explicitly update the parent’s `left` or `right` pointer in the `else` block because the recursive call handles it automatically. The parent node's pointer is updated when the recursive call returns the modified subtree (or `None` if the node was deleted).
