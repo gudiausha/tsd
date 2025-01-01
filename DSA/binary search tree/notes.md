@@ -1,4 +1,5 @@
-A **Binary Search Tree (BST)** is a specialized binary tree with the following properties that make it efficient for search and traversal operations:
+A **Binary Search Tree (BST)** - https://www2.hawaii.edu/~takebaya/ics211/module8/module8.html
+is a specialized binary tree with the following properties that make it efficient for search and traversal operations:
 
 ### Key Properties of a BST:
 1. **Node Structure**: 
@@ -252,7 +253,7 @@ A **self-balancing Binary Search Tree** is a type of BST that maintains a balanc
 
 ---
 
-No, a **Binary Search Tree (BST)** can be traversed using **all three types of tree traversal techniques** (in-order, pre-order, and post-order). Each traversal serves a different purpose and outputs the nodes in a specific order.
+A **Binary Search Tree (BST)** can be traversed using **all three types of tree traversal techniques** (in-order, pre-order, and post-order). Each traversal serves a different purpose and outputs the nodes in a specific order.
 
 ---
 
