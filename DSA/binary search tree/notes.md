@@ -475,3 +475,57 @@ After deletion, the tree becomes:
 
 ### **Key Takeaway**
 We don’t need to explicitly update the parent’s `left` or `right` pointer in the `else` block because the recursive call handles it automatically. The parent node's pointer is updated when the recursive call returns the modified subtree (or `None` if the node was deleted).
+
+---
+
+In a **Binary Search Tree (BST)**, the **inorder predecessor** and **inorder successor** of a node are defined relative to the sorted order of the tree.
+
+### **Inorder Predecessor**
+The **inorder predecessor** of a node is the node that comes immediately **before** it in an inorder traversal (sorted order).
+
+#### **Cases to Find Inorder Predecessor**
+1. **If the left subtree exists:**
+   - The inorder predecessor is the **rightmost node** in the left subtree.
+2. **If the left subtree does not exist:**
+   - Traverse up the tree using the parent pointer until you find a node that is a **right child** of its parent. That parent will be the inorder predecessor.
+
+---
+
+### **Inorder Successor**
+The **inorder successor** of a node is the node that comes immediately **after** it in an inorder traversal (sorted order).
+
+#### **Cases to Find Inorder Successor**
+1. **If the right subtree exists:**
+   - The inorder successor is the **leftmost node** in the right subtree.
+2. **If the right subtree does not exist:**
+   - Traverse up the tree using the parent pointer until you find a node that is a **left child** of its parent. That parent will be the inorder successor.
+
+---
+
+### **Examples**
+
+Consider this BST:
+```
+        20
+       /  \
+     10    30
+    /  \      \
+   5   15      40
+```
+
+1. **Inorder Traversal**: `5, 10, 15, 20, 30, 40`
+   
+   - Inorder predecessor of `20` is `15`.
+   - Inorder successor of `20` is `30`.
+
+2. **For `10`:**
+   - Inorder predecessor: `5`.
+   - Inorder successor: `15`.
+
+### **Time Complexity**
+- **Finding Predecessor/Successor in a BST**:
+  - **Best case**: \(O(1)\) (direct child).
+  - **Worst case**: \(O(h)\), where \(h\) is the height of the tree.
+- **Space Complexity**: \(O(1)\) for iterative methods.
+
+---
