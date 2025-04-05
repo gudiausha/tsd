@@ -15,3 +15,8 @@
 |Valid Parentheses|https://leetcode.com/problems/valid-parentheses/description/|dictionaries,stack|O(n)|O(n)|create parentheses dict - if char in dict - pop first ele-compare-return/append|
 |Best time to buy and sell|https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/|DP,2-pointers|O(n)|O(1)|initialize maxp=0 - minbuy-first ele - calculate current profit-compare max profit - update min buy to current ele|
 |3sum|https://leetcode.com/problems/3sum/description/|2-pointers(keep one static)|O(n2)|O(m) m for storing results|fix i - iterate j&k - once end of arr reached-increment i & start again - if eles same increment j,k till new ele reached|
+|ContainerWithMostWater|https://leetcode.com/problems/container-with-most-water/description/|2-pointers(opp side)|O(n)|O(1)|opp side - follow formula for width,height and area calculation|
+|Trapping rain water|https://leetcode.com/problems/trapping-rain-water/description/ |2pointer(opp side)|O(n)|O(1)|max left or right = compare b/w max height & current value ; total water capacity is always maximum height - current value|
+|Search in 2D Matrix| https://leetcode.com/problems/search-a-2d-matrix/description/| binary search|O(log(m*n))|O(1)|calculate ele (row,col) by float div, remainder div at each step|
+|Koko eating bananas|https://leetcode.com/problems/koko-eating-bananas/description/|binary search|O(n*log(max_pile))|O(1)|for every ele, take the ciel and update the hrs. based on hrs added, update pointers|
+|Min ele in sorted rotated array|https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/|binary search|O(log n)|O(1)|find the sorted arr - left/right/entire arr and binary search|
